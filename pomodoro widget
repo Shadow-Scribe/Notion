@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.pomodoro-container {
+  width: 300px;
+  height: 300px;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.gif {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+button img {
+  width: 30px;
+  height: 30px;
+}
+</style>
+<body>
+  <div class="pomodoro-container">
+    <div class="timer">
+      <div class="countdown">25:00</div>
+      <img class="gif" src="your-gif-url.gif" alt="Pomodoro Gif">
+    </div>
+    <div class="controls">
+      <button id="start-btn"><img src="play-icon.png" alt="Start"></button>
+      <button id="stop-btn"><img src="stop-icon.png" alt="Stop"></button>
+      <button id="refresh-btn"><img src="refresh-icon.png" alt="Refresh"></button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
