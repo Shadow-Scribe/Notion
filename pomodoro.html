@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pomodoro Timer</title>
   <link rel="stylesheet" href="styles.css">
-</head>
 <style>
 body {
   font-family: Arial, sans-serif;
@@ -21,6 +20,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.progress-tracker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-tracker img {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
 }
 
 .timer {
@@ -39,6 +51,7 @@ body {
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 .controls {
@@ -57,15 +70,58 @@ button img {
   height: 30px;
 }
 </style>
+
+<script>
+const pomodoroDuration = 25 * 60; // 25 minutes in seconds
+const shortBreakDuration = 10 * 60; // 10 minutes in seconds
+const longBreakDuration = 20 * 60; // 20 minutes in seconds
+
+let timer;
+let countdownTime = pomodoroDuration;
+
+const countdownDisplay = document.querySelector('.countdown');
+
+function startTimer() {
+  timer = setInterval(updateCountdown, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+}
+
+function updateCountdown() {
+  const minutes = Math.floor(countdownTime / 60);
+  let seconds = countdownTime % 60;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  countdownDisplay.textContent = `${minutes}:${seconds}`;
+  if (countdownTime === 0) {
+    clearInterval(timer);
+    // Handle timer completion (e.g., switch to short break, long break)
+  } else {
+    countdownTime--;
+  }
+}
+
+document.getElementById('start-btn').addEventListener('click', startTimer);
+document.getElementById('stop-btn').addEventListener('click', stopTimer);
+</script>
+</head>
 <body>
   <div class="pomodoro-container">
+    <div class="progress-tracker">
+      <img src="empty-icon.png" alt="">
+      <img src="empty-icon.png" alt="">
+      <img src="empty-icon.png" alt="">
+      <img src="empty-icon.png" alt="">
+    </div>
     <div class="timer">
+      <img class="gif" src="pomodoro.gif" alt="Pomodoro Gif">
       <div class="countdown">25:00</div>
-      <img class="gif" src="your-gif-url.gif" alt="Pomodoro Gif">
     </div>
     <div class="controls">
       <button id="start-btn"><img src="play-icon.png" alt="Start"></button>
       <button id="stop-btn"><img src="stop-icon.png" alt="Stop"></button>
+      <button id="skip-btn"><img src="skip-icon.png" alt="Skip"></button>
       <button id="refresh-btn"><img src="refresh-icon.png" alt="Refresh"></button>
     </div>
   </div>
