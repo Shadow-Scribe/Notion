@@ -7,22 +7,39 @@
  <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-  <div class="pomodoro-container">
-    <div class="progress-tracker">
-      <img src="empty-icon.png" alt="">
-      <img src="empty-icon.png" alt="">
-      <img src="empty-icon.png" alt="">
-      <img src="empty-icon.png" alt="">
-    </div>
-    <div class="timer">
-      <img class="gif" src="pomodoro.gif" alt="Pomodoro Gif">
-      <div class="countdown">25:00</div>
-    </div>
-    <div class="controls">
-      <button id="start-btn"><img src="play-icon.png" alt="Start"></button>
-      <button id="stop-btn"><img src="stop-icon.png" alt="Stop"></button>
-      <button id="skip-btn"><img src="skip-icon.png" alt="Skip"></button>
-      <button id="refresh-btn"><img src="refresh-icon.png" alt="Refresh"></button>
+  <div class="container">
+    <div class="gif">
+	  <img id="catwork" src="https://media.tenor.com/iPpIXHmlXS8AAAAi/pusheen-nice-cat-mice.gif" align="center">
+	  <img id="catbreak" src="https://i.imgur.com/56F8tDi.gif" align="center">
+	  <img id="catinterval" src="https://media.tenor.com/rvBrvkLW_a4AAAAi/pusheen.gif" align="center">
+	</div>
+	
+    <div class="progress">
+      <div class="cycle-one"></div>
+      <div class="cycle-two"></div>
+      <div class="cycle-three"></div>
+      <div class="cycle-four"></div>
+	  
+	  <div class="circle">
+	    <div class="time">
+          <p id="minutes"></p>
+		  <p>:</p>
+		  <p id="seconds"></p>
+		</div>
+		
+		<div class="stage">
+		  <p id="work">work</p>
+		  <p id="break">break</p>
+		  <p id="interval">interval</p>
+		</div>
+	  </div>
+	</div>
+    
+	<div class="controls">
+      <button id="start"><i class="fa-solid fa-play"></i></button>
+      <button id="stop"><i class="fa-solid fa-pause"></i></button>
+      <button id="next"><i class="fa-solid fa-forward-step"></i></button>
+      <button id="refresh"><i class="fa-solid fa-arrow-rotate-left"></i></button>
     </div>
   </div>
   <script src="app.js"></script>
