@@ -25,8 +25,12 @@
 
   // DOM elements
 window.onload = () => {
-	document.getElementById('minutes').innerHTML = minutes;
-  document.getElementById('seconds').innerHTML = seconds;
+	// Add leading zero to minutes and seconds if they are single digit
+  const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+  const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
+		
+  document.getElementById('minutes').innerHTML = formattedMinutes;
+  document.getElementById('seconds').innerHTML = formattedSeconds;
 	document.getElementById('repeats').innerHTML = 0;
 	
 	workTittle.classList.add('active');
@@ -35,8 +39,12 @@ window.onload = () => {
 	
   // Update timer display
   function updateTimer() {
-  	document.getElementById('minutes').innerHTML = minutes;
-    document.getElementById('seconds').innerHTML = seconds;
+		// Add leading zero to minutes and seconds if they are single digit
+  	const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+  	const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
+		
+  	document.getElementById('minutes').innerHTML = formattedMinutes;
+    document.getElementById('seconds').innerHTML = formattedSeconds;
 		document.getElementById('repeats').innerHTML = cycles;
   }
 
@@ -135,8 +143,29 @@ window.onload = () => {
     seconds = 00;
     startTimer();
     // Play alarm sound
-    new Audio('https://assets.ctfassets.net/v3n26e09qg2r/6BAvlneupPCE2NFwJSIn2X/77cffe4d0988cef30ad207dc37b143ad/SlowMorning.mp3').play();
+    const audio = new Audio('https://assets.ctfassets.net/v3n26e09qg2r/6BAvlneupPCE2NFwJSIn2X/77cffe4d0988cef30ad207dc37b143ad/SlowMorning.mp3');
+		// Set initial volume to maximum
+		audio.volume = 1;
+		audio.play();
+
+		// Function to gradually reduce the volume in 10 secs
+		function fadeOut() {	
+	  	// Check if the volume is very low or muted
+ 			if (audio.volume <= 0.01) {
+    		// If the volume is very low or muted, pause the audio and stop fading out
+    		audio.pause();
+    		clearInterval(fadeOutInterval);
+  		}else{
+				// Reduce the volume by the volume reduction step
+ 		 		audio.volume -= 0.01;
+			}
+		}
+
+		// Start the fade-out effect
+		const fadeOutInterval = setInterval(fadeOut, 100); // Run fadeOut function every 100 milliseconds
+		
   }
+
 
   function resetButton() {
     stopTimer();
