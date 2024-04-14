@@ -5,43 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pomodoro Widget</title>
  <link rel="stylesheet" href="style.css"> 
+ <script src="https://kit.fontawesome.com/094cca5271.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-  <div class="container">
-    <div class="gif">
-	  <img id="catwork" src="https://media.tenor.com/iPpIXHmlXS8AAAAi/pusheen-nice-cat-mice.gif" align="center">
-	  <img id="catbreak" src="https://i.imgur.com/56F8tDi.gif" align="center">
-	  <img id="catinterval" src="https://media.tenor.com/rvBrvkLW_a4AAAAi/pusheen.gif" align="center">
-	</div>
-	
-    <div class="progress">
-      <div class="cycle-one"></div>
-      <div class="cycle-two"></div>
-      <div class="cycle-three"></div>
-      <div class="cycle-four"></div>
-	  
-	  <div class="circle">
-	    <div class="time">
-          <p id="minutes"></p>
-		  <p>:</p>
-		  <p id="seconds"></p>
-		</div>
+	<section>
+		<div class="container">
+			<div class="gif">
+				<img id="catwork" src="https://media.tenor.com/iPpIXHmlXS8AAAAi/pusheen-nice-cat-mice.gif" align="center">
+				<img id="catbreak" src="https://i.imgur.com/0bYF90I.gif" align="center">
+				<img id="catinterval" src="https://media.tenor.com/rvBrvkLW_a4AAAAi/pusheen.gif" align="center">
+			</div>
+
+			<div class="stage">
+			 <p id="work">work</p>
+			 <p id="break">break</p>
+			 <p id="interval">long</p>
+			</div>
+			
+			<div class="timer">
+			  <p id="minutes"></p>
+			  <p style="margin-top: 40px;">:</p>
+			  <p id="seconds"></p>
+			</div>
+
+			<div class="progress">
+		  	<div class="item" id="stepone"></div>
+		  	<div class="item" id="steptwo"></div>
+		  	<div class="item" id="stepthree"></div>
+		  	<div class="item" id="stepfour"></div>
+				<div class="repetitions">x <p id="repeats"></p></div>
+			</div> 
 		
-		<div class="stage">
-		  <p id="work">work</p>
-		  <p id="break">break</p>
-		  <p id="interval">interval</p>
+		 <div class="controls">
+		  <button id="start" onclick="startTimer()"><i class="fa-solid fa-play fa-lg"></i></button>
+		  <button id="stop" onclick="stopTimer()"><i class="fa-solid fa-pause fa-lg"></i></button>
+		  <button id="next" onclick="nextStep()"><i class="fa-solid fa-forward-step fa-lg"></i></button>
+		  <button id="refresh" onclick="resetButton()"><i class="fa-solid fa-rotate-left fa-lg"></i></button>
+		 </div>
 		</div>
-	  </div>
-	</div>
-    
-	<div class="controls">
-      <button id="start"><i class="fa-solid fa-play"></i></button>
-      <button id="stop"><i class="fa-solid fa-pause"></i></button>
-      <button id="next"><i class="fa-solid fa-forward-step"></i></button>
-      <button id="refresh"><i class="fa-solid fa-arrow-rotate-left"></i></button>
-    </div>
-  </div>
+	</section>
   <script src="app.js"></script>
 </body>
 </html>
