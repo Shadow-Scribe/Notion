@@ -1,5 +1,4 @@
 body {
-  height: 144px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,13 +8,16 @@ body {
   color: rgba(255, 255, 255, 0.9);
   background-color: rgb(25, 25, 25);
   font-family: 'Segoe Ui', sans-serif;
-  font-size: 3vh;
+  font-size: 2vw;
 }
 
 .card-body {
+   height: 144px;
+   border: red solid 2px;
    padding: 20px;
    color: #9A6DD7;
    font-style: italic;
+   overflow: hidden;
 }
         
 .content {
