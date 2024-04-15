@@ -13,7 +13,6 @@ body {
 
 .card-body {
    height: 144px;
-   border: red solid 2px;
    padding: 20px;
    color: #9A6DD7;
    font-style: italic;
