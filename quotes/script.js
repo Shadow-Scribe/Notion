@@ -7,15 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector('.content');
   
   function adjustFontSize() {
-    const maxHeight = 144; // Height in pixels
-    const contentHeight = content.offsetHeight;
-    const scaleFactor = maxHeight / contentHeight;
-    const currentFontSize = parseFloat(window.getComputedStyle(content).fontSize);
-    const newFontSize = currentFontSize * scaleFactor;
-    content.style.fontSize = `${newFontSize}px`;
-  }
+        const maxHeight = 121; // Height in pixels
+        const contentHeight = content.offsetHeight;
+        const scaleFactor = maxHeight / contentHeight;
+        const currentFontSize = parseFloat(window.getComputedStyle(content).fontSize);
+        const newFontSize = currentFontSize * scaleFactor;
+        content.style.fontSize = `${newFontSize}px`;
+    }
 
-  adjustFontSize(); // Adjust font size on initial load
+    adjustFontSize(); // Adjust font size on initial load
   
   async function updateQuote() {
     try {
