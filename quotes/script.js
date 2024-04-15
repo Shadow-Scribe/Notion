@@ -3,6 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const quote = document.querySelector(".quote");
   const quote_text = document.querySelector("blockquote p");
   const cite = document.querySelector("blockquote cite");
+  const cardBody = document.querySelector('.card-body');
+  const content = document.querySelector('.content');
+  
+  function adjustFontSize() {
+    const maxHeight = 144; // Height in pixels
+    const contentHeight = content.offsetHeight;
+    const scaleFactor = maxHeight / contentHeight;
+    const currentFontSize = parseFloat(window.getComputedStyle(content).fontSize);
+    const newFontSize = currentFontSize * scaleFactor;
+    content.style.fontSize = `${newFontSize}px`;
+  }
+
+  adjustFontSize(); // Adjust font size on initial load
   
   async function updateQuote() {
     try {
