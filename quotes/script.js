@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   async function updateQuote() {
     try {
-      const response = await fetch("https://api.quotable.io/random");
+      const response = await fetch("https://gist.github.com/Shadow-Scribe/0a529e630e7fd15f401e59b2d596eba5.js");
       const data = await response.json();
       
       if (response.ok) {
