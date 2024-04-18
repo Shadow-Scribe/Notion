@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   
-  async function updateQuoteCustom(https://gist.github.com/Shadow-Scribe/0a529e630e7fd15f401e59b2d596eba5.js) {
-    const response = await fetch(https://gist.github.com/Shadow-Scribe/0a529e630e7fd15f401e59b2d596eba5.js);
+  async function updateQuoteCustom(https://gist.githubusercontent.com/Shadow-Scribe/0a529e630e7fd15f401e59b2d596eba5/raw/75d960087f4a51584754f8376bc5fd8f83ba731e/quotes.json) {
+    const response = await fetch(https://gist.githubusercontent.com/Shadow-Scribe/0a529e630e7fd15f401e59b2d596eba5/raw/75d960087f4a51584754f8376bc5fd8f83ba731e/quotes.json);
     const data = await response.json();
     if (response.ok && data.length > 0) {
       random_quote = data[Math.floor(Math.random() * data.length - 1) + 1];
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (fileUrl == null) {
       updateQuote();
     } else {
-      updateQuoteCustom(https://gist.github.com/Shadow-Scribe/0a529e630e7fd15f401e59b2d596eba5.js);
+      updateQuoteCustom(https://gist.githubusercontent.com/Shadow-Scribe/0a529e630e7fd15f401e59b2d596eba5/raw/75d960087f4a51584754f8376bc5fd8f83ba731e/quotes.json);
     }
   }
 
