@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const response = await fetch(f);
     const data = await response.json();
     if (response.ok && data.length > 0) {
-      random_quote = data[Math.floor(Math.random() * data.length)];
+      random_quote = data[Math.floor(Math.random() * data.length - 1) + 1];
       quote_text.textContent = random_quote.content;
       cite.textContent = random_quote.author;
     } else {
